@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: post
-        uses: Hitlabs/pr-reviewer-pronto-notification-action@v1
+        uses: Hitlabs/pr-reviewer-pronto-notification-action@main
         with:
           chat-id: 000000
           api-token: ${{ secrets.PRONTO_BOT_API_TOKEN }}
