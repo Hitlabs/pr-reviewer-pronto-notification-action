@@ -16,7 +16,7 @@ if (!chatId || !apiToken) {
 }
 
 
-let action = pull_request.merged ? 'merged' : payload.action
+let action = payload.action
 if (review && review.state === 'approved') {
 	action = 'approved'
 } else if (pull_request.merged) {
