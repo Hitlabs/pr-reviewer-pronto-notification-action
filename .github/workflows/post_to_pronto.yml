@@ -8,4 +8,4 @@ jobs:
         uses: Hitlabs/pr-reviewer-pronto-notification@zack
         with:
           chat-id: 259189
-          api-token: ${{ secrets.PRONTO_GITHUB_BOT_API_TOKEN }}
+          api-token: ${{ secrets.PRONTO_BOT_API_TOKEN }}
