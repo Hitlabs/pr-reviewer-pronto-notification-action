@@ -6,6 +6,10 @@ inputs:
     required: true
   api-token:
     description: "The Pronto API token used to make API requests"
+    required: true
+  api-domain:
+    description: "The domain of the Pronto server (e.g. 'api.pronto.io'). The production env is used by default."
+    required: false
 runs:
   using: 'node16'
   main: 'index.js'
