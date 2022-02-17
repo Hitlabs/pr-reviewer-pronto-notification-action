@@ -15,6 +15,8 @@ if (!chatId || !apiToken) {
 	throw new Error(`Invalid parameters provided: ${JSON.stringify({ chatId, apiToken })}`)
 }
 
+const action = pull_request.merged ? 'merged' : payload.action
+
 axios({
 	method: 'post',
 	url: `https://${prontoDomain}/api/chats/${chatId}/messages`,
@@ -26,7 +28,7 @@ axios({
 		text: [
 			pull_request.title,
 			pull_request.html_url,
-			`PR #${pull_request.id} ${payload.action} by @${pull_request.user.login}`,
+			`PR #${pull_request.number} ${action} by @${pull_request.user.login}`,
 		].join('\n'),
 	},
 })
