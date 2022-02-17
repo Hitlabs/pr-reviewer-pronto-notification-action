@@ -8,7 +8,7 @@ const { eventName, payload, ref } = github.context;
 const pull_request = payload.pull_request;
 
 console.log(`Chat ID: ${chatId}`);
-console.log(`The event payload: ${payload}`);
+console.log(`The event payload: ${ JSON.stringify(payload, undefined, 2) }`);
 
 const PR_ACTION = payload.action;
 const PR_TITLE = pull_request.title;
@@ -19,12 +19,12 @@ const PRONTO_TOKEN = apiToken;
 const PRONTO_GROUP_ID = chatId;
 const PRONTO_DOMAIN = "api.pronto.io";
 
-if (!['opened', 'closed', 'reopened'].includes(PR_ACTION)) {
-	// possible types are found here:
-	// https://docs.github.com/en/developers/webhooks-and-events/events/github-event-types#pullrequestevent
-	console.log('IGNORING PR ACTION TYPE OF', PR_ACTION)
-	return
-}
+// if (!['opened', 'closed', 'reopened'].includes(PR_ACTION)) {
+// 	// possible types are found here:
+// 	// https://docs.github.com/en/developers/webhooks-and-events/events/github-event-types#pullrequestevent
+// 	console.log('IGNORING PR ACTION TYPE OF', PR_ACTION)
+// 	return
+// }
 
 // const isValid = [
 // 	'PR_ACTION',
