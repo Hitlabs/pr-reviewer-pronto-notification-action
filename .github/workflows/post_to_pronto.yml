@@ -2,10 +2,11 @@ name: Post to Pronto
 on: [pull_request]
 jobs:
   post-to-pronto:
+    if: github.event.action == 'opened' || github.event.action == 'closed' || github.event.action == 'reopened'
     runs-on: ubuntu-latest
     steps:
       - name: post-message
         uses: Hitlabs/pr-reviewer-pronto-notification-action@zack
         with:
-          chat-id: 259189
+          chat-id: ${{ secrets.PRONTO_CHAT_ID }}
           api-token: ${{ secrets.PRONTO_BOT_API_TOKEN }}
