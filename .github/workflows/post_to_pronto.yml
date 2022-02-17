@@ -1,8 +1,11 @@
 name: Post to Pronto
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened, closed, reopened]
+  pull_request_review:
+    types: [submitted, edited]
 jobs:
   post-to-pronto:
-    if: github.event.action == 'opened' || github.event.action == 'closed' || github.event.action == 'reopened'
     runs-on: ubuntu-latest
     steps:
       - name: post-message
