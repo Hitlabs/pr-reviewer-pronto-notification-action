@@ -6,10 +6,10 @@ const apiToken = core.getInput('api-token');
 const chatId = core.getInput('chat-id');
 const prontoDomain = core.getInput('api-domain') || 'api.pronto.io'
 const { payload } = github.context;
-const { pull_request, review } = payload;
+const { pull_request, review, sender } = payload;
 
 console.log(`Chat ID: ${chatId}`);
-console.log(`The event payload: ${ JSON.stringify(payload, undefined, 2) }`);
+console.log(`The event payload: ${JSON.stringify(payload, null, 2) }`);
 
 if (!chatId || !apiToken) {
 	throw new Error(`Invalid parameters provided: ${JSON.stringify({ chatId, apiToken })}`)
@@ -23,11 +23,6 @@ if (review && review.state === 'approved') {
 	action = 'merged'
 }
 
-let user = pull_request.user
-if (review && review.user) {
-	user = review.user
-}
-
 axios({
 	method: 'post',
 	url: `https://${prontoDomain}/api/chats/${chatId}/messages`,
@@ -39,7 +34,7 @@ axios({
 		text: [
 			pull_request.title,
 			pull_request.html_url,
-			`PR #${pull_request.number} ${action} by @${user.login}`,
+			`PR #${pull_request.number} ${action} by @${sender.login}`,
 		].join('\n'),
 	},
 })
