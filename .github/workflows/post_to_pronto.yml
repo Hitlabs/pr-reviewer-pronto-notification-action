@@ -1,0 +1,11 @@
+name: Post to Pronto
+on: [pull_request]
+jobs:
+  post-to-pronto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: post-message
+        uses: Hitlabs/pr-reviewer-pronto-notification-action@zack
+        with:
+          chat-id: 259189
+          api-token: ${{ secrets.PRONTO_BOT_API_TOKEN }}
