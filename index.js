@@ -28,7 +28,7 @@ axios({
 		text: [
 			pull_request.title,
 			pull_request.html_url,
-			`PR #${pull_request.id} ${action} by @${pull_request.user.login}`,
+			`PR #${pull_request.number} ${action} by @${pull_request.user.login}`,
 		].join('\n'),
 	},
 })
