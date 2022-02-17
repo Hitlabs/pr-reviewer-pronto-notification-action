@@ -15,6 +15,7 @@ const PR_TITLE = pull_request.title;
 const PR_ID = pull_request.id;
 const PR_USER = pull_request.user.login;
 const PR_MERGED = pull_request.merged;
+const PR_URL = pull_request.html_url;
 const PRONTO_TOKEN = apiToken;
 const PRONTO_GROUP_ID = chatId;
 const PRONTO_DOMAIN = "api.pronto.io";
@@ -56,7 +57,7 @@ axios({
 	data: {
 		text: [
 			PR_TITLE,
-			`https://github.com/Hitlabs/pronto-web/pull/${PR_ID}`,
+			`${PR_URL}`,
 			`PR #${PR_ID} ${action} by @${PR_USER}`,
 		].join('\n'),
 	},
