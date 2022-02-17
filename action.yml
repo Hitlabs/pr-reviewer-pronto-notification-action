@@ -1,0 +1,11 @@
+name: 'PR Reviewer Pronto Notifify Action'
+description: 'Send a Pronto message when a PR is opened'
+inputs:
+  chat-id:
+    description: "The ID of the Pronto chat in which to send the message."
+    required: true
+  api-token:
+    description: "The Pronto API token used to make API requests"
+runs:
+  using: 'node16'
+  main: 'index.js'
