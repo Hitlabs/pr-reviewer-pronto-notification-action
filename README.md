@@ -4,7 +4,7 @@ This action will post messages to a chat in Pronto when certain PR events occur.
 
 # Adding the action to your project
 
-In your `./github/workflows` directory, add a `pronto_post.yml`. Add the following as contents:
+In your repo, create a `./github/workflows` directory if it does not already exist, and add a `pronto_post.yml` file. Add the following as contents:
 
 ```yml
 name: Post to Pronto
