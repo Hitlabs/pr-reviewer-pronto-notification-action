@@ -79,8 +79,12 @@ async function updatePRWithProntoMessageId(event, msgId) {
 
 async function handleEvent(event) {
 	const parentMsgId = parseMsgId(event.pull_request.body)
-	const message = await postToPronto(event, parentMsgId)
-	await updatePRWithProntoMessageId(event, message.data.data.id)
+	if (parentMsgId) {
+		await postToPronto(event, parentMsgId)
+	} else {
+		const message = await postToPronto(event)
+		await updatePRWithProntoMessageId(event, message.data.data.id)
+	}
 	console.log('ALL DONE!')
 }
 
