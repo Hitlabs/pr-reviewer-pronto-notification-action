@@ -11,5 +11,6 @@ jobs:
       - name: post-message
         uses: Hitlabs/pr-reviewer-pronto-notification-action@zack
         with:
-          chat-id: ${{ secrets.PRONTO_CHAT_ID }}
-          api-token: ${{ secrets.PRONTO_BOT_API_TOKEN }}
+          chat-id: 310643
+          pronto-api-token: ${{ secrets.PRONTO_BOT_API_TOKEN }}
+          github-api-token: ${{ secrets.ZACK_GH_API_TOKEN }}
