@@ -13,4 +13,5 @@ jobs:
         with:
           chat-id: 310643
           pronto-api-token: ${{ secrets.PRONTO_BOT_API_TOKEN }}
-          github-api-token: ${{ secrets.ZACK_GH_API_TOKEN }}
+          github-api-token: poop
+          # github-api-token: ${{ secrets.ZACK_GH_API_TOKEN }}
