@@ -31,11 +31,11 @@ function parseMsgId(str) {
 	return matches ? parseInt(matches[1]) : undefined
 }
 
-async function postToPronto(event, parentmessage_id) {
+async function postToPronto(event, parent_id) {
 	console.log('POSTING TO PRONTO')
 	const { pull_request, action, sender } = event;
 
-	const text = parentmessage_id 
+	const text = parent_id 
 		? `${action} by @${sender.login}`
 		: [
 			pull_request.title,
@@ -50,7 +50,7 @@ async function postToPronto(event, parentmessage_id) {
 			'Content-Type': 'application/json',
 			Authorization: `Bearer ${prontoApiToken}`,
 		},
-		data: { parentmessage_id, text },
+		data: { parent_id, text },
 	})
 	console.log('Message Successfully Posted to Pronto!', response)
 	return response
