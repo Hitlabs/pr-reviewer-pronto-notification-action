@@ -11,8 +11,8 @@ const { payload } = github.context;
 console.log(`Chat ID: ${chatId}`);
 console.log(`The event payload: ${JSON.stringify(payload, null, 2) }`);
 
-if (!chatId || !prontoApiToken) {
-	throw new Error(`Invalid parameters provided: ${JSON.stringify({ chatId, prontoApiToken })}`)
+if (!chatId || !prontoApiToken || !githubApiToken) {
+	throw new Error(`Invalid parameters provided: ${JSON.stringify({ chatId, prontoApiToken, githubApiToken })}`)
 }
 
 
