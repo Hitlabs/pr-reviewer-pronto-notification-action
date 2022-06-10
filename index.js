@@ -8,7 +8,6 @@ const chatId = core.getInput('chat-id');
 const prontoDomain = core.getInput('api-domain') || 'api.pronto.io'
 const { payload } = github.context;
 
-const MSG_ID_CODE
 const MSG_ID_REGEXP = /\[\[PRONTO_MSG_ID:(\d.*)\]\]/
 
 console.log(`Chat ID: ${chatId}`);
