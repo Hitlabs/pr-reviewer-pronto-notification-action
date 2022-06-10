@@ -68,7 +68,7 @@ async function updatePRWithProntoMessageId(event, msgId) {
 
 async function handleEvent(event) {
 	const message = await postToPronto(event)
-	await updatePRWithProntoMessageId(message.data.data.id)
+	await updatePRWithProntoMessageId(event, message.data.data.id)
 	console.log('ALL DONE!')
 }
 
