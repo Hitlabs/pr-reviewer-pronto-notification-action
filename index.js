@@ -26,8 +26,9 @@ if (payload.review && payload.review.state === 'approved') {
 }
 
 function parseMsgId(str) {
+	if (!str) return undefined
 	const matches = str.match(MSG_ID_REGEXP)
-	return matches ? parseInt(matches[1]) : null
+	return matches ? parseInt(matches[1]) : undefined
 }
 
 async function postToPronto(event, parentmessage_id) {
