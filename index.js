@@ -50,7 +50,7 @@ async function updatePRWithProntoMessageId(event, msgId) {
 	const { pull_request } = event
 	const response = await axios({
 		method: 'PATCH',
-		url: pull_request._links.self,
+		url: pull_request._links.self.href,
 		headers: {
 			'Content-Type': 'application/vnd.github.v3+json',
 			Authorization: `token ${githubApiToken}`,
