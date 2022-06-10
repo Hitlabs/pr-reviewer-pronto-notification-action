@@ -32,7 +32,6 @@ function parseMsgId(str) {
 }
 
 async function postToPronto(event, parent_id) {
-	console.log('POSTING TO PRONTO')
 	const { pull_request, action, sender } = event;
 
 	const text = parent_id 
@@ -57,7 +56,6 @@ async function postToPronto(event, parent_id) {
 }
 
 async function updatePRWithProntoMessageId(event, msgId) {
-	console.log('UPDATING PR WITH MESSAGE ID:', msgId)
 	const { pull_request } = event
 	const response = await axios({
 		method: 'PATCH',
@@ -85,7 +83,6 @@ async function handleEvent(event) {
 		const message = await postToPronto(event)
 		await updatePRWithProntoMessageId(event, message.data.data.id)
 	}
-	console.log('ALL DONE!')
 }
 
 handleEvent(payload)
