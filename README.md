@@ -22,7 +22,7 @@ jobs:
         with:
           chat-id: 000000
           pronto-api-token: ${{ secrets.PRONTO_BOT_API_TOKEN }}
-          github-api-token: ${{ secrets.GITHUB_BOT_API_TOKEN }}
+          github-api-token: ${{ secrets.PRONTO_GITHUB_API_TOKEN }}
 ```
 
 Change the `chat-id` input property to be whatever chat you want the message to appear in. The API Token will be pulled in automatically from the organization's shared secret store.
