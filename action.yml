@@ -4,7 +4,10 @@ inputs:
   chat-id:
     description: "The ID of the Pronto chat in which to send the message."
     required: true
-  api-token:
+  github-api-token:
+    description: "The Github API token used to make API requests"
+    required: true
+  pronto-api-token:
     description: "The Pronto API token used to make API requests"
     required: true
   api-domain:
