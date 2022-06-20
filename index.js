@@ -32,7 +32,7 @@ function parseMsgId(str) {
 }
 
 async function postToPronto(event, parent_id) {
-	const { pull_request, action, sender } = event;
+	const { pull_request, sender } = event;
 
 	const text = parent_id 
 		? `${action} by @${sender.login}`
